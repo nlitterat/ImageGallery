@@ -1,12 +1,15 @@
-
-<div *ngFor="let element of elements" >
-  <div (click)="onDelete(element.id)" > delete</div>
-  <div class="wrapper" (click)="onEdit(element)" >
-  {{element.title}}
-  <br/>
-  <img src="{{element.src}}"/>
-  <br/>
-  {{element.description}}
-  <br/>
-</div >
+<div *ngFor="let element of elements" style="width: fit-content;">
+  <div class="dropdown">
+    <div>...</div>
+    <div class="dropdown-content">
+      <div (click)="onEdit(element.id)">Edit</div>
+      <div (click)="onDelete(element.id)">delete</div>
+    </div>
+  </div>
+  <div style="float: left">{{ element.title }}</div>
+  <br />
+  <img src="{{ element.src }}" />
+  <br />
+  {{ element.description }}
+  <br />
 </div>
