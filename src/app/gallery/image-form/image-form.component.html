@@ -1,0 +1,68 @@
+<div>
+  <h1 *ngIf="editMode" >Edit image</h1>
+  <h1 *ngIf="!editMode" >Add image</h1>
+  <form (ngSubmit)="onSubmit()" [formGroup]="galleryElementForm">
+    <label>Title: </label>
+    <input type="text" formControlName="title" />
+    <div
+      *ngIf="
+        !galleryElementForm.controls['title'].valid &&
+        galleryElementForm.controls['title'].touched &&
+        galleryElementForm.controls['title'].errors.required
+      "
+    >
+      Title is required
+    </div>
+    <div
+      *ngIf="
+        !galleryElementForm.controls['title'].valid &&
+        galleryElementForm.controls['title'].touched &&
+        galleryElementForm.controls['title'].errors.minlength
+      "
+    >
+      Ttile must be atleast 2 charcter long
+    </div>
+    <div
+      *ngIf="
+        !galleryElementForm.controls['title'].valid &&
+        galleryElementForm.controls['title'].touched &&
+        galleryElementForm.controls['title'].errors.maxlength
+      "
+    >
+      Title must be less then 15 charcters long
+    </div>
+    <label>URL: </label>
+    <input type="text" formControlName="src" />
+    <div
+      *ngIf="
+        !galleryElementForm.controls['src'].valid &&
+        galleryElementForm.controls['src'].touched &&
+        galleryElementForm.controls['src'].errors.required
+      "
+    >
+      URL is required
+    </div>
+    <div
+      *ngIf="
+        !galleryElementForm.controls['src'].valid &&
+        galleryElementForm.controls['src'].errors.minlength
+      "
+    >
+      URL must be atleast 7 charcter long
+    </div>
+    <div
+      *ngIf="
+        !galleryElementForm.controls['src'].valid &&
+        galleryElementForm.controls['src'].errors.urlPrefix
+      "
+    >
+      URL must be start with http or https
+    </div>
+    <label>Description: </label>
+    <textarea
+      formControlName="description"
+    ></textarea>
+
+    <button type="submit" [disabled]="!galleryElementForm.valid">Save</button>
+  </form>
+</div>

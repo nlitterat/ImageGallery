@@ -1,0 +1,16 @@
+<div>
+  <a [routerLink] ="['view']">View</a>
+</div>
+<div>
+  <a [routerLink] ="['add']">Add</a>
+</div>
+<div>
+  <a [routerLink] ="['edit',4]">Edit</a>
+</div>
+<div>
+  <a [routerLink] ="['delete']">Delete</a>
+</div>
+<div (click)="onDummyAdd()" >
+  add dummy image
+</div>
+<router-outlet></router-outlet>

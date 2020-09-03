@@ -1,0 +1,44 @@
+<div>
+  <h1>Add new image</h1>
+  <form (ngSubmit)="onSubmit()" #imageAddForm="ngForm">
+    <label>Title: </label>
+    <input
+      name="title"
+      required
+      minlength="2"
+      maxlength="15"
+      [(ngModel)]="element.title"
+      #title="ngModel"
+    />
+    <div *ngIf="!title.valid && title.errors.required" >
+      Title is required
+    </div>
+    <div *ngIf="!title.valid && title.errors.minlength" >
+      Ttile must be atleast 2 charcter long
+    </div>
+    <label>URL: </label>
+    <input
+      name="src"
+      required
+      minlength="7"
+      maxlength="400"
+      [(ngModel)]="element.src"
+      #src="ngModel"
+    />
+    <div *ngIf="!src.valid && src.touched && src.errors.required" >
+      URL is required
+    </div>
+    <div *ngIf="!src.valid && src.errors.minlength" >
+      URL must be atleast 7 charcter long
+    </div>
+    <label>Description: </label>
+    <textarea
+      name="description"
+      maxlength="400"
+      [(ngModel)]="element.description"
+      #description="ngModel"
+    ></textarea>
+
+    <button type="submit" [disabled]="!imageAddForm.form.valid">Save</button>
+  </form>
+</div>

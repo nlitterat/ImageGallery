@@ -1,0 +1,12 @@
+
+<div *ngFor="let element of elements" >
+  <div (click)="onDelete(element.id)" > delete</div>
+  <div class="wrapper" (click)="onEdit(element)" >
+  {{element.title}}
+  <br/>
+  <img src="{{element.src}}"/>
+  <br/>
+  {{element.description}}
+  <br/>
+</div >
+</div>
