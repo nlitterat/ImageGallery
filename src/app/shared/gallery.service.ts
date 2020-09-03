@@ -30,7 +30,12 @@ export class GalleryService {
       this.changeEvent.next(this.elements);
     });
   }
-
+  edit(element: GalleryElement) {
+    const url = 'http://localhost:8089/elements';
+    this.httpClient.put(url, element).subscribe((value: GalleryElement) => {
+      this.loadElements();
+    });
+  }
   delete(id: number): void {
     const url = 'http://localhost:8089/elements';
     this.httpClient.delete<void>(url, {
