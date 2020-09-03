@@ -34,6 +34,7 @@ export class ImageFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('Hello');
     this.activatedRoute.data.subscribe(data => {
       console.log(data);
       this.editMode = data.editMode;
