@@ -30,7 +30,9 @@ export class GalleryService {
       this.changeEvent.next(this.elements);
     });
   }
-
+badMege() {
+  console.log('I do not want this to work');
+}
   delete(id: number): void {
     const url = 'http://localhost:8089/elements';
     this.httpClient.delete<void>(url, {
