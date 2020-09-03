@@ -45,7 +45,7 @@ export class ImageFormComponent implements OnInit {
   }
   onSubmit() {
     if (this.editMode) {
-
+      this.galleryService.edit(this.galleryElementForm.value);
     } else {
       this.galleryService.add(this.galleryElementForm.value);
     }
