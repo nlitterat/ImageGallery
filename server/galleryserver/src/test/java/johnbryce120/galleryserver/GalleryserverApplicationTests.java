@@ -8,6 +8,7 @@ class GalleryserverApplicationTests {
 
 	@Test
 	void contextLoads() {
+		assert(false);
 	}
 
 }
